@@ -1,7 +1,12 @@
 function App() {
   return (
     <>
-      <p className="text-green-800">Plain Flags demo</p>
+      <div
+        id="canvasFramer"
+        className="h-screen flex flex-row items-center justify-center"
+      >
+        <div id="canvas" className="bg-amber-500 w-96 h-96"></div>
+      </div>
     </>
   );
 }
