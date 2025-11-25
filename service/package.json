@@ -1,0 +1,26 @@
+{
+  "name": "plain-flags-service",
+  "version": "1.0.0",
+  "description": "Express.js service for plain flags demo",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc -w",
+    "start": "npm run build && node dist/server.js",
+    "dev": "tsc && node --watch dist/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "service"
+  ],
+  "author": "",
+  "license": "ISC"
+}
