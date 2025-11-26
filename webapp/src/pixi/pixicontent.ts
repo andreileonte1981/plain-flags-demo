@@ -17,6 +17,8 @@ export default class PixiContent {
         document.getElementById("canvas")!.appendChild(pixiApp.canvas);
 
         const gridState = new GridState();
+        await gridState.update();
+
         const gridGraphics = new GridGraphics();
 
         gridGraphics.render(gridState, pixiApp.stage);

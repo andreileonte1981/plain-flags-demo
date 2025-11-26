@@ -5,10 +5,14 @@
             "request": "launch",
             "type": "chrome",
             "url": "http://localhost:5175",
-            "webRoot": "${workspaceFolder}/app",
+            "webRoot": "${workspaceFolder}",
             "sourceMapPathOverrides": {
                 "webpack:///./*": "${webRoot}/*"
-            }
+            },
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/",
+                "!/node_modules/**"
+            ],
         }
     ]
 }
