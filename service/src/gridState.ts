@@ -6,7 +6,13 @@ export default class GridState {
         GridState.grid = Array.from({ length: gridSize }, () => Array(gridSize).fill(0));
         GridState.gridSize = gridSize;
 
+        this.updateLoop(gridSize);
+    }
+
+    private static async updateLoop(gridSize: number): Promise<void> {
         GridState.toggleRandomCells(Math.floor((gridSize * gridSize) / 4));
+
+        setTimeout(() => this.updateLoop(gridSize), 1000);
     }
 
     static toggleCell(x: number, y: number): void {
