@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import GridState from './gridState';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -6,9 +7,10 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 
-// GET endpoint that returns empty JSON
-app.get('/api/data', (req: Request, res: Response) => {
-    res.status(200).json({});
+GridState.init(24);
+
+app.get('/api/grid', (req: Request, res: Response) => {
+    res.status(200).json({ grid: GridState.grid });
 });
 
 // Start the server
