@@ -2,14 +2,23 @@ import { Graphics, type Container } from "pixi.js";
 import GridState from "./gridState";
 
 export default class GridGraphics {
-    private cellSize: number;
+    private cellSize: number = 16;
 
-    constructor(cellSize: number = 16) {
-        this.cellSize = cellSize;
+    private canvasSize: number = 384;
+
+    constructor(canvasSize: number) {
+        this.canvasSize = canvasSize;
     }
 
     render(state: GridState, stage: Container): void {
         stage.removeChildren();
+
+        if (state.gridSize === 0) {
+            return;
+        }
+
+        this.cellSize = this.canvasSize / state.gridSize;
+
         for (let y = 0; y < state.gridSize; y++) {
             for (let x = 0; x < state.gridSize; x++) {
                 if (state.getCell(x, y) === 1) {
