@@ -3,12 +3,15 @@ import PlainFlags from "plain-flags-node-sdk";
 export default class GridState {
     static flags: PlainFlags = new PlainFlags({
         policy: "poll",
-        serviceUrl: "http://localhost:5001",
+        serviceUrl: process.env.PLAIN_FLAGS_STATES_URL || "",
         timeout: 20000,
         pollInterval: 1000,
         apiKey: process.env.PLAIN_FLAGS_API_KEY || "",
         logStateUpdatesOnPoll: true,
-    }, null, null);
+    },
+        null,   // Mute logs
+        null    // Mute errors
+    );
 
     static grid: number[][] = [];
     static gridSize: number = 0;
@@ -32,7 +35,14 @@ export default class GridState {
         for (let row = 0; row < GridState.gridSize; row++) {
             for (let col = 0; col < GridState.gridSize; col++) {
                 const flagName = `pixel-${row}-${col}`;
-                const flagValue = await GridState.flags.isOn(flagName) ? 1 : 0;
+                let flagValue = 0;
+
+                /**************************
+                *  Feature enabling code: *
+                **************************/
+                if (GridState.flags.isOn(flagName)) {
+                    flagValue = 1;
+                }
 
                 GridState.grid[row][col] = flagValue;
             }
