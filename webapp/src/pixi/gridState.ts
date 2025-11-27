@@ -10,7 +10,13 @@ export default class GridState {
     async update(): Promise<void> {
         // Fetch grid state from server
         try {
-            const response = await fetch("http://localhost:3000/api/grid");
+            let gridUrl = import.meta.env.VITE_GRID_URL;
+
+            if (!gridUrl || gridUrl.length === 0) {
+                gridUrl = "https://demoapp.plainflags.dev/api/grid";
+            }
+
+            const response = await fetch(gridUrl);
             const data: { grid: number[][] } = await response.json();
             this.grid = data.grid;
             this.gridSize = Math.min(this.grid.length, this.grid[0]?.length || 0);

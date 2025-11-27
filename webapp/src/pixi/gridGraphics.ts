@@ -21,7 +21,7 @@ export default class GridGraphics {
 
         for (let y = 0; y < state.gridSize; y++) {
             for (let x = 0; x < state.gridSize; x++) {
-                if (state.getCell(x, y) === 1) {
+                if (state.getCell(y, x) === 1) {
                     const cellGraphic = new Graphics();
 
                     cellGraphic.rect(
