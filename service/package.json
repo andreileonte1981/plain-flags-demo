@@ -1,7 +1,7 @@
 {
-  "name": "plain-flags-service",
+  "name": "plainflags-demoapp-frontend",
   "version": "1.0.0",
-  "description": "Express.js service for plain flags demo",
+  "description": "Express.js service for plain flags demo controlled app",
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc -w",
@@ -26,6 +26,5 @@
     "api",
     "service"
   ],
-  "author": "",
-  "license": "ISC"
+  "author": "Andrei Leonte"
 }

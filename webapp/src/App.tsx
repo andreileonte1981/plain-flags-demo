@@ -5,10 +5,19 @@ function App() {
 
   return (
     <>
-      <div id="explanation" className="p-2 text-center">
+      <div
+        id="explanation"
+        className="p-2 text-center flex flex-col gap-2 items-center"
+      >
         <p>
           The image below has its pixels controlled by the Plain Flags demo
-          installation.
+          installation at{" "}
+          <a
+            href="https://demoservice.plainflags.dev/"
+            className="text-green-600 hover:underline"
+          >
+            demoservice.plainflags.dev
+          </a>
         </p>
         <p>
           Any demo user can add, set and clear feature flags to contribute to
@@ -16,7 +25,8 @@ function App() {
         </p>
         <p id="disclamer" className="text-xs text-red-700 py-4">
           Community generated content below. The author of Plain Flags assumes
-          no liability for offensive or disturbing content.
+          no liability for offensive, disturbing or otherwise inappropriate
+          content.
         </p>
         <div
           id="confirmShow"
