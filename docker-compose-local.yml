@@ -1,0 +1,20 @@
+services:
+  demo-backend:
+    build: ./service
+    environment:
+      - PORT=3000
+      - PLAIN_FLAGS_API_KEY_FILE=/run/secrets/plainflags_api_key
+      - PLAIN_FLAGS_STATES_URL=https://demoservice.plainflags.dev
+    ports:
+      - 3000:3000
+    secrets:
+      - plainflags_api_key
+
+  demo-frontend:
+    build: ./webapp
+    ports:
+      - 5175:5175
+
+secrets:
+  plainflags_api_key:
+    file: ./.secrets/flags.apikey.txt

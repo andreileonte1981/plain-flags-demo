@@ -1,13 +1,16 @@
 import { useState } from "react";
+import PixiContent from "./pixi/pixicontent";
 
 function App() {
   const [show, setShow] = useState(false);
+
+  const frameClass = show ? "flex items-center justify-center p-4" : "hidden";
 
   return (
     <>
       <div
         id="explanation"
-        className="p-2 text-center flex flex-col gap-2 items-center"
+        className="p-2 md:p-16 text-center text-gray-600 font-semibold flex flex-col gap-2 items-center"
       >
         <p>
           The image below has its pixels controlled by the Plain Flags demo
@@ -28,25 +31,21 @@ function App() {
           no liability for offensive, disturbing or otherwise inappropriate
           content.
         </p>
-        <div
-          id="confirmShow"
-          className="flex items-center justify-center gap-2"
-        >
-          <input
-            type="checkbox"
+        {!show && (
+          <button
             id="confirmCheckbox"
-            onChange={(e) => setShow(e.target.checked)}
-          />{" "}
-          Show image
-        </div>
+            className="rounded bg-green-900 hover:bg-green-600 text-white font-semibold p-2 px-4"
+            onClick={() => {
+              setShow(true);
+              PixiContent.init(document);
+            }}
+          >
+            Show image
+          </button>
+        )}
       </div>
 
-      <div
-        id="canvasFramer"
-        className={`flex items-center justify-center p-4 ${
-          show ? "" : "hidden"
-        }`}
-      >
+      <div id="canvasFramer" className={frameClass}>
         <div id="canvas" className="w-96 h-96"></div>
       </div>
     </>

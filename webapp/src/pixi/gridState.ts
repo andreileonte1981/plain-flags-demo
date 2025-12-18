@@ -14,6 +14,7 @@ export default class GridState {
 
             if (!gridUrl || gridUrl.length === 0) {
                 gridUrl = "https://demoapp.plainflags.dev/api/grid";
+                // gridUrl = "http://localhost:3000/api/grid";
             }
 
             const response = await fetch(gridUrl);
@@ -22,7 +23,6 @@ export default class GridState {
             this.gridSize = Math.min(this.grid.length, this.grid[0]?.length || 0);
         } catch (error) {
             console.error("Failed to fetch grid state:", error);
-            alert("Error fetching grid state from server.");
         }
     }
 }
