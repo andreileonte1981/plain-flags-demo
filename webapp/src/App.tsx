@@ -21,9 +21,14 @@ function App() {
           <button
             id="confirmCheckbox"
             className="rounded bg-green-900 hover:bg-green-600 text-white font-semibold p-2 px-4"
-            onClick={() => {
+            onClick={async () => {
               setShow(true);
-              PixiContent.init(document);
+              try {
+                await PixiContent.init(document);
+              } catch (error) {
+                console.error("Failed to initialize graphics:", error);
+                // The error UI is handled within PixiContent.init
+              }
             }}
           >
             Show image
