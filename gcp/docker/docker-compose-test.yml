@@ -1,0 +1,25 @@
+services:
+  demo-backend:
+    image: ghcr.io/andreileonte1981/plain-flags-demo-service-gcp:latest
+    environment:
+      - PORT=3000
+      - PLAIN_FLAGS_API_KEY_FILE=/run/secrets/plainflags_api_key
+      - PLAIN_FLAGS_STATES_URL=https://demoservice.plainflags.dev
+    ports:
+      - "3000:3000"
+    secrets:
+      - plainflags_api_key
+
+  demo-webapp-gcp:
+    image: ghcr.io/andreileonte1981/plain-flags-demo-webapp-gcp:latest
+    depends_on:
+      - demo-backend
+    environment:
+      - PORT=5176
+      - GRID_URL=http://localhost:3000/api/grid
+    ports:
+      - "5176:5176"
+
+secrets:
+  plainflags_api_key:
+    file: ../../.secrets/flags.apikey.txt
