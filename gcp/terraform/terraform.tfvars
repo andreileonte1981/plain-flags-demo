@@ -1,0 +1,9 @@
+# You can change suffixes to avoid name clashes with existing resources.
+service_name_suffix             = "demo"
+plainflags_deployment_name_suffix = "pf"
+
+# Required by the Plain Flags module.
+superadmin_email   = "andrei.leonte.dev@gmail.com"
+firebase_auth_domain = "plain-flags-demo.firebaseapp.com"
+firebase_api_key   = "replace-me"
+firebase_app_id    = "replace-me"

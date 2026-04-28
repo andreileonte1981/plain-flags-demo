@@ -186,6 +186,13 @@ dist
 report_*.txt
 
 
+# Terraform working directories and local state artifacts
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+
 bin/
 build/
 dist/
