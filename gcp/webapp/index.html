@@ -5,18 +5,9 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plain Flags Demo (GCP)</title>
-    <!--
-      Runtime configuration: this block is intentionally kept as plain JS so it
-      can be rewritten by a server, a CDN edge function, or Terraform at deploy
-      time without rebuilding the JS bundle.
-
-      During local development the values here are used directly.
-      Override GRID_URL to point at your backend without rebuilding.
-    -->
+    <!-- Runtime config object; GRID_URL is injected by server.cjs in runtime mode. -->
     <script>
-      window.__APP_CONFIG__ = {
-        GRID_URL: "http://localhost:3000/api/grid"
-      };
+      window.ENV = window.ENV || {};
     </script>
   </head>
   <body>

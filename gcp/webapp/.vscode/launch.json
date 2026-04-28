@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "Launch Chrome (GCP webapp)",
+            "name": "Launch Chrome (GCP webapp dev)",
             "request": "launch",
             "type": "chrome",
             "url": "http://localhost:5176",
@@ -13,6 +13,13 @@
                 "${workspaceFolder}/",
                 "!/node_modules/**"
             ]
+        },
+        {
+            "name": "Launch Chrome (GCP webapp runtime)",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:5176",
+            "webRoot": "${workspaceFolder}/gcp/webapp"
         }
     ]
 }

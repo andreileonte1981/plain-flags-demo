@@ -38,22 +38,6 @@ function App() {
       <div id="canvasFramer" className={frameClass}>
         <div id="canvas" className="w-96 h-96"></div>
       </div>
-
-      <div className="flex flex-col gap-2 p-2 md:p-16 text-center font-semibold text-gray-600">
-        <p>
-          Control the pixels at{" "}
-          <a
-            href="https://demoservice.plainflags.dev/"
-            className="text-green-600 hover:underline"
-          >
-            demoservice.plainflags.dev
-          </a>
-        </p>
-        <p>
-          Demo users can add, set and clear feature flags to contribute to the
-          image.
-        </p>
-      </div>
     </>
   );
 }
