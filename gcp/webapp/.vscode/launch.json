@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Launch Chrome (GCP webapp)",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:5176",
+            "webRoot": "${workspaceFolder}/gcp/webapp",
+            "sourceMapPathOverrides": {
+                "webpack:///./*": "${webRoot}/*"
+            },
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/",
+                "!/node_modules/**"
+            ]
+        }
+    ]
+}
