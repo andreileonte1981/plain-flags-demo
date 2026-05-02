@@ -204,3 +204,5 @@ backend/services/solfeggio-service/media/
 backend/solfeggio-tests/uploads/stress/
 backend/services/solfeggio-service/settings/
 certificates/
+gcp/firebase/plainflags.firebase.tfvars
+gcp/terraform/terraform.tfvars

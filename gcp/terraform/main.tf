@@ -35,6 +35,8 @@ resource "google_secret_manager_secret_iam_member" "backend_apikey_access" {
   secret_id = module.plainflags.deployment_names.secret_ids.states_apikey
   role      = "roles/secretmanager.secretAccessor"
   member    = "serviceAccount:${google_service_account.app_runner.email}"
+
+  depends_on = [module.plainflags]
 }
 
 resource "google_cloud_run_v2_service" "demo_backend" {
